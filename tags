@@ -1,0 +1,39 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+CC	Makefile	/^CC = gcc$/;"	m
+CFLAGS	Makefile	/^CFLAGS = #-Wall -Wextra -Werror $/;"	m
+DEP	Makefile	/^DEP = $(OBJ:%.o=%.d)$/;"	m
+ECHO	Makefile	/^ECHO= echo -e$/;"	m
+FLAGS	Makefile	/^FLAGS := -lmlx -framework OpenGL -framework AppKit$/;"	m
+FRACTOL_H	inc/fractol.h	/^# define FRACTOL_H$/;"	d
+HEADER_PATH	Makefile	/^HEADER_PATH := inc$/;"	m
+HEIGHT	inc/fractol.h	/^# define HEIGHT /;"	d
+INCLUDE	Makefile	/^INCLUDE := -I$(HEADER_PATH) $/;"	m
+NAME	Makefile	/^NAME = fractol$/;"	m
+OBJ	Makefile	/^OBJ = $(SRC:%.c=$(OBJ_PATH)\/%.o)$/;"	m
+OBJ_PATH	Makefile	/^OBJ_PATH := obj$/;"	m
+SRC	Makefile	/^SRC := main.c image.c$/;"	m
+SRC_PATH	Makefile	/^SRC_PATH := src$/;"	m
+WIDTH	inc/fractol.h	/^# define WIDTH /;"	d
+bits_in_pix	inc/fractol.h	/^	int		bits_in_pix;$/;"	m	struct:s_img
+endian	inc/fractol.h	/^	int		endian;$/;"	m	struct:s_img
+ft_color_pix	src/image.c	/^int			ft_color_pix(t_img *img, int x, int y, int color)$/;"	f
+height	inc/fractol.h	/^	int		height;$/;"	m	struct:s_img
+img_ptr	inc/fractol.h	/^	void		*img_ptr;$/;"	m	struct:s_data
+img_ptr	inc/fractol.h	/^	void	*img_ptr;$/;"	m	struct:s_img
+imgdata	inc/fractol.h	/^	t_img		*imgdata;$/;"	m	struct:s_data
+main	src/main.c	/^int		main(int ac, char **av)$/;"	f
+mlx_ptr	inc/fractol.h	/^	void		*mlx_ptr;$/;"	m	struct:s_data
+new_img	src/image.c	/^t_img		*new_img(void *mlx_ptr, int width, int height)$/;"	f
+pixs	inc/fractol.h	/^	char	*pixs;$/;"	m	struct:s_img
+s_data	inc/fractol.h	/^typedef struct	s_data$/;"	s
+s_img	inc/fractol.h	/^typedef struct	s_img$/;"	s
+size_line	inc/fractol.h	/^	int		size_line;$/;"	m	struct:s_img
+t_data	inc/fractol.h	/^}				t_data;$/;"	t	typeref:struct:s_data
+t_img	inc/fractol.h	/^}				t_img;$/;"	t	typeref:struct:s_img
+width	inc/fractol.h	/^	int		width;$/;"	m	struct:s_img
+win_ptr	inc/fractol.h	/^	void		*win_ptr;$/;"	m	struct:s_data
