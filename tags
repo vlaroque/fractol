@@ -16,24 +16,37 @@ INCLUDE	Makefile	/^INCLUDE := -I$(HEADER_PATH) $/;"	m
 NAME	Makefile	/^NAME = fractol$/;"	m
 OBJ	Makefile	/^OBJ = $(SRC:%.c=$(OBJ_PATH)\/%.o)$/;"	m
 OBJ_PATH	Makefile	/^OBJ_PATH := obj$/;"	m
-SRC	Makefile	/^SRC := main.c image.c$/;"	m
+SRC	Makefile	/^SRC := main.c image.c julia.c$/;"	m
 SRC_PATH	Makefile	/^SRC_PATH := src$/;"	m
 WIDTH	inc/fractol.h	/^# define WIDTH /;"	d
 bits_in_pix	inc/fractol.h	/^	int		bits_in_pix;$/;"	m	struct:s_img
 endian	inc/fractol.h	/^	int		endian;$/;"	m	struct:s_img
+fill_img	src/main.c	/^int		fill_img(t_data *data, t_img *img)$/;"	f
 ft_color_pix	src/image.c	/^int			ft_color_pix(t_img *img, int x, int y, int color)$/;"	f
 height	inc/fractol.h	/^	int		height;$/;"	m	struct:s_img
+imag	inc/fractol.h	/^	double		imag;$/;"	m	struct:s_complex
 img_ptr	inc/fractol.h	/^	void		*img_ptr;$/;"	m	struct:s_data
 img_ptr	inc/fractol.h	/^	void	*img_ptr;$/;"	m	struct:s_img
 imgdata	inc/fractol.h	/^	t_img		*imgdata;$/;"	m	struct:s_data
+julia	src/julia.c	/^int		julia(t_coord x, t_coord y, int max)$/;"	f
+key_hook	src/main.c	/^int		key_hook(int keycode, t_data *data)$/;"	f
 main	src/main.c	/^int		main(int ac, char **av)$/;"	f
 mlx_ptr	inc/fractol.h	/^	void		*mlx_ptr;$/;"	m	struct:s_data
+mouse_pos_hook	src/main.c	/^int		mouse_pos_hook(int x, int y, t_data *data)$/;"	f
+mouse_wheel_hook	src/main.c	/^int		mouse_wheel_hook(int button, int x, int y, t_data *data)$/;"	f
 new_img	src/image.c	/^t_img		*new_img(void *mlx_ptr, int width, int height)$/;"	f
+pix_off	inc/fractol.h	/^	t_coord		pix_off;$/;"	m	struct:s_data
 pixs	inc/fractol.h	/^	char	*pixs;$/;"	m	struct:s_img
+real	inc/fractol.h	/^	double		real;$/;"	m	struct:s_complex
+s_complex	inc/fractol.h	/^typedef struct	s_complex$/;"	s
 s_data	inc/fractol.h	/^typedef struct	s_data$/;"	s
 s_img	inc/fractol.h	/^typedef struct	s_img$/;"	s
 size_line	inc/fractol.h	/^	int		size_line;$/;"	m	struct:s_img
+t_complex	inc/fractol.h	/^}				t_complex;$/;"	t	typeref:struct:s_complex
+t_coord	inc/fractol.h	/^typedef double	t_coord;$/;"	t
 t_data	inc/fractol.h	/^}				t_data;$/;"	t	typeref:struct:s_data
 t_img	inc/fractol.h	/^}				t_img;$/;"	t	typeref:struct:s_img
 width	inc/fractol.h	/^	int		width;$/;"	m	struct:s_img
 win_ptr	inc/fractol.h	/^	void		*win_ptr;$/;"	m	struct:s_data
+x_or	inc/fractol.h	/^	t_coord		x_or;$/;"	m	struct:s_data
+y_or	inc/fractol.h	/^	t_coord		y_or;$/;"	m	struct:s_data

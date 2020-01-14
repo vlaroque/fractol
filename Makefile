@@ -1,6 +1,6 @@
 # SOURCES 
 
-SRC := main.c image.c julia.c
+SRC := main.c image.c julia.c mandelbrot.c debug.c
 
 # PATH GLOBAL
 

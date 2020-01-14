@@ -6,7 +6,7 @@
 /*   By: vlaroque <vlaroque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/23 16:23:05 by vlaroque          #+#    #+#             */
-/*   Updated: 2019/12/24 08:30:46 by vlaroque         ###   ########.fr       */
+/*   Updated: 2020/01/14 20:10:52 by vlaroque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,13 @@ int		fill_img(t_data *data, t_img *img)
 	int		y;
 
 	y = 0;
-	while (y < img->height)
+	while (y < IMG_H)
 	{
 		x = 0;
-		while (x < img->width)
+		while (x < IMG_W)
 		{
-			ft_color_pix(img, x, y, 0x102 * julia(data->x_or + (x * data->pix_off),
-						data->y_or + (y * data->pix_off), 10000));
+			ft_color_pix(img, x, y, 0x102 * mandelbrot(data->x_or + (x * data->pix_off),
+						data->y_or + (y * data->pix_off), 100));
 			x++;
 		}
 		y++;
@@ -41,19 +41,13 @@ int		fill_img(t_data *data, t_img *img)
 	return (1);
 }
 
-int		mouse_pos_hook(int x, int y, t_data *data)
-{
-	printf("pos = %d %d\n", x, y);
-	return (0);
-}
-
 int		mouse_wheel_hook(int button, int x, int y, t_data *data)
 {
 	t_coord x_pix;
 	t_coord y_pix;
 
-	x -= WIDTH / 2 - 400;
-	y -= HEIGHT / 2 - 400;
+	x -= WIN_W / 2 - IMG_W / 2;
+	y -= WIN_H / 2 - IMG_H / 2;
 	if (button == 5)
 	{
 		x_pix = data->x_or + (x * data->pix_off);
@@ -72,7 +66,7 @@ int		mouse_wheel_hook(int button, int x, int y, t_data *data)
 	}
 	fill_img(data, data->imgdata);
 	mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->imgdata->img_ptr,
-			WIDTH / 2 - 400, HEIGHT / 2 - 400);
+			WIN_W / 2 - IMG_W / 2, WIN_H / 2 - IMG_H / 2);
 	mlx_string_put(data->mlx_ptr, data->win_ptr, 120, 120, 123456, "Hello");
 	return (0);
 }
@@ -83,16 +77,16 @@ int		main(int ac, char **av)
 
 	if (!(data.mlx_ptr = mlx_init()))
 		return (0);
-	if (!(data.win_ptr = mlx_new_window(data.mlx_ptr, WIDTH, HEIGHT, "Fdf")))
+	if (!(data.win_ptr = mlx_new_window(data.mlx_ptr, WIN_W, WIN_H, "Fdf")))
 		return (0);
-	if (!(data.imgdata = new_img(data.mlx_ptr, 800, 800)))
+	if (!(data.imgdata = new_img(data.mlx_ptr, IMG_W, IMG_H)))
 		return (0);
 	data.x_or = -1.0;
 	data.y_or = -1.0;
 	data.pix_off = 1.0 / 400;
 	fill_img(&data, data.imgdata);
 	mlx_put_image_to_window(data.mlx_ptr, data.win_ptr, data.imgdata->img_ptr,
-			WIDTH / 2 - 400, HEIGHT / 2 - 400);
+			WIN_W / 2 - IMG_W / 2, WIN_H / 2 - IMG_H / 2);
 	mlx_string_put(data.mlx_ptr, data.win_ptr, 120, 120, 123456, "Hello");
 //	mlx_hook(data.win_ptr, 6, 1L << 6, &mouse_pos_hook, (void *)&data);
 	mlx_hook(data.win_ptr, 4, 1L << 2, &mouse_wheel_hook, (void *)&data);

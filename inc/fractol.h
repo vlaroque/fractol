@@ -6,14 +6,16 @@
 /*   By: vlaroque <vlaroque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/23 21:26:21 by vlaroque          #+#    #+#             */
-/*   Updated: 2019/12/24 08:15:21 by vlaroque         ###   ########.fr       */
+/*   Updated: 2020/01/14 20:08:39 by vlaroque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FRACTOL_H
 # define FRACTOL_H
-# define WIDTH 1920
-# define HEIGHT 1080
+# define WIN_W 1920
+# define WIN_H 1080
+# define IMG_W 800
+# define IMG_H 800
 # include <stdio.h>
 
 typedef double	t_coord;
@@ -51,5 +53,8 @@ t_img		*new_img(void *mlx_ptr, int width, int height);
 int			ft_color_pix(t_img *img, int x, int y, int color);
 
 int		julia(t_coord x, t_coord y, int max);
+int		mandelbrot(t_coord x, t_coord y, int max);
+
+int		mouse_pos_hook(int x, int y, t_data *data);
 #endif
 
