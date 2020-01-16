@@ -6,7 +6,7 @@
 /*   By: vlaroque <vlaroque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/24 01:46:34 by vlaroque          #+#    #+#             */
-/*   Updated: 2019/12/24 08:35:28 by vlaroque         ###   ########.fr       */
+/*   Updated: 2020/01/16 09:54:27 by vlaroque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int		julia(t_coord x, t_coord y, int max)
 		i++;
 	}
 	if (i == max)
-		return (0);
+		return (-2);
 //	if (i > 10)
 //		printf("i = %d\n", i);
 	return (i);

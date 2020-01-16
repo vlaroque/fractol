@@ -6,7 +6,7 @@
 /*   By: vlaroque <vlaroque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/23 16:23:05 by vlaroque          #+#    #+#             */
-/*   Updated: 2020/01/14 20:10:52 by vlaroque         ###   ########.fr       */
+/*   Updated: 2020/01/16 09:55:11 by vlaroque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,9 +64,8 @@ int		mouse_wheel_hook(int button, int x, int y, t_data *data)
 		data->x_or = x_pix - (x * data->pix_off);
 		data->y_or = y_pix - (y * data->pix_off);
 	}
-	fill_img(data, data->imgdata);
-	mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->imgdata->img_ptr,
-			WIN_W / 2 - IMG_W / 2, WIN_H / 2 - IMG_H / 2);
+	//fill_img(data, data->imgdata);
+	show_matrix(data);
 	mlx_string_put(data->mlx_ptr, data->win_ptr, 120, 120, 123456, "Hello");
 	return (0);
 }
@@ -84,9 +83,11 @@ int		main(int ac, char **av)
 	data.x_or = -1.0;
 	data.y_or = -1.0;
 	data.pix_off = 1.0 / 400;
-	fill_img(&data, data.imgdata);
-	mlx_put_image_to_window(data.mlx_ptr, data.win_ptr, data.imgdata->img_ptr,
-			WIN_W / 2 - IMG_W / 2, WIN_H / 2 - IMG_H / 2);
+	data.fract = &julia;
+	//fill_img(&data, data.imgdata);
+	//mlx_put_image_to_window(data.mlx_ptr, data.win_ptr, data.imgdata->img_ptr,
+	////		WIN_W / 2 - IMG_W / 2, WIN_H / 2 - IMG_H / 2);
+	show_matrix(&data);
 	mlx_string_put(data.mlx_ptr, data.win_ptr, 120, 120, 123456, "Hello");
 //	mlx_hook(data.win_ptr, 6, 1L << 6, &mouse_pos_hook, (void *)&data);
 	mlx_hook(data.win_ptr, 4, 1L << 2, &mouse_wheel_hook, (void *)&data);

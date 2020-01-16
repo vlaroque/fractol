@@ -6,7 +6,7 @@
 /*   By: vlaroque <vlaroque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/23 21:26:21 by vlaroque          #+#    #+#             */
-/*   Updated: 2020/01/14 20:08:39 by vlaroque         ###   ########.fr       */
+/*   Updated: 2020/01/16 09:56:45 by vlaroque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ typedef struct	s_data
 	void		*mlx_ptr;
 	void		*win_ptr;
 	void		*img_ptr;
+	int			matrice[IMG_W * IMG_H];
+	int			(*fract)(t_coord, t_coord, int);
 	t_coord		pix_off;
 	t_coord		x_or;
 	t_coord		y_or;
@@ -48,6 +50,12 @@ typedef struct	s_complex
 	double		imag;
 }				t_complex;
 
+typedef struct	s_point
+{
+	int			x;
+	int			y;
+}				t_point;
+
 
 t_img		*new_img(void *mlx_ptr, int width, int height);
 int			ft_color_pix(t_img *img, int x, int y, int color);
@@ -56,5 +64,15 @@ int		julia(t_coord x, t_coord y, int max);
 int		mandelbrot(t_coord x, t_coord y, int max);
 
 int		mouse_pos_hook(int x, int y, t_data *data);
+
+int		matrix_erase(t_data *data);
+int		matrix_to_img(t_data *data);
+int		fill_matrix(t_data *data);
+int		show_matrix(t_data *data);
+
+
+int		flood_fill(t_data *data, int x, int y);
+t_point point(int x, int y);
+int		blackhole(t_data *data, t_point init, t_point pt, int dir);
 #endif
 

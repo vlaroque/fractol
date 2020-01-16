@@ -1,6 +1,18 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: vlaroque <vlaroque@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2020/01/15 22:23:08 by vlaroque          #+#    #+#              #
+#    Updated: 2020/01/16 12:25:02 by vlaroque         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 # SOURCES 
 
-SRC := main.c image.c julia.c mandelbrot.c debug.c
+SRC := main.c image.c julia.c mandelbrot.c debug.c matrix.c blackhole.c
 
 # PATH GLOBAL
 
@@ -17,8 +29,8 @@ INCLUDE := -I$(HEADER_PATH)
 # GLOBAL
 
 CC = gcc
-CFLAGS = #-Wall -Wextra -Werror 
-FLAGS := -lmlx -framework OpenGL -framework AppKit
+CFLAGS = -g -fsanitize=address #-Wall -Wextra -Werror 
+FLAGS := -g -fsanitize=address -lmlx -framework OpenGL -framework AppKit
 NAME = fractol
 
 # UTILS
